@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--ex1-->
+
+<html lang="ro">
+  <head>
+    <meta name="description" content="Platforma de Vanzare Masini  Second-Hand" />
+    <meta
+  name="keywords"
+  content="auto second-hand, vanzare masini, cumparare masini, anunturi auto, piata auto, leasing auto, rate auto, ghid-forum auto, platforma vanzari auto, cumparatori auto, vanzatori auto"
+/>
+    <title>AutoXV</title>
+
+
+    <%- include("../fragmente/head.ejs") %>
+    
+  </head>
+
+  <body>
+    
+    <%- include("../fragmente/header.ejs") %>
+
+    <main>
+      <!--e5-->
+      <div class="container">
+        <div class="zona1">
+          <div class="search">
+            <h1 class="search-title">Esti in cautarea masinii urmatoare?</h1>
+            <p class="search-subtitle">
+              Noi iti suntem la dispozitie<br />
+              pentru a iti gasi impreuna masina perfecta pentru dorintele tale!
+            </p>
+            <button class="search-bar">
+              <a href="#populare">Cele mai populare marci si modele</a>
+            </button>
+          </div>
+          <div class="banner">
+            <img
+              src="/resurse/imagini/masini/aventador.png"
+              alt="Banner"
+              class="banner-img"
+            />
+          </div>
+        </div>
+
+        <div class="zona2">
+          <div class="table-title-container">
+            <p class="table-title">
+              <a href="#populare">Cele mai populare marci si modele</a>
+            </p>
+          </div>
+          <div class="table">
+            <table>
+              <caption class="table-caption">
+                *Toate preturile includ TVA.*
+              </caption>
+              <thead class="table-head">
+                <tr>
+                  <th>Model</th>
+                  <th>An</th>
+                  <th>Pret (€)</th>
+                  <th>Caracteristici</th>
+                </tr>
+              </thead>
+              <tbody class="table-body">
+                <tr>
+                  <td>Renault Laguna</td>
+                  <td>2018</td>
+                  <td>9.999</td>
+                  <td rowspan="2">Cutie automata, Tip caroserie: Coupe</td>
+                </tr>
+                <tr>
+                  <td>Audi A5</td>
+                  <td>2015</td>
+                  <td>15.750</td>
+                </tr>
+                <tr>
+                  <td>Alfa Romeo Giulia</td>
+                  <td>2021</td>
+                  <td>19.250</td>
+                  <td>Motor 2.0 Turbo Benzina, 1 singur proprietar</td>
+                </tr>
+                <tr>
+                  <td>BMW Seria 3</td>
+                  <td>2022</td>
+                  <td>12.000</td>
+                  <td>328xi, Capacitate cilindrica: 2996cm³</td>
+                </tr>
+              </tbody>
+              <tfoot class="table-foot">
+                <tr>
+                  <td colspan="4">
+                    Toate vehicule au dispus de schimburi de ulei si intretinere
+                    inainte de publicare.
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="zona3">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad mi officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="zona4">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad mi officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="zona5">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad mi officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        <div class="zona6">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad mi officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        <div class="zona7">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad mi officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        <div class="zona8">
+          <details>
+            <summary>
+              Cum aflati mai exact daca un vehicul face parte din sectiunea vehiculelor apartinant marcilor sau modelelor populare?
+            </summary>
+           
+            <p>Folosim urmatoarea formula matematica:</p>
+            <div class="bonus2">
+
+              <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                  <mi>P</mi>
+                  <mo>=</mo>
+                  <mfrac linethickness="1">
+                    <mrow>
+                      <mi class="B">B</mi>
+                      <mo>+</mo>
+                      <mi class="M">M</mi>
+                      <mo>+</mo>
+                      <mi class="S">S</mi>
+                    </mrow>
+                    <mn>3</mn>
+                  </mfrac>
+                </mrow>
+                <mrow>
+                  <mtext>Unde:</mtext>
+                  <ul>
+                    <li><b class="B">B</b> - Popularitatea brandului (0-10)</li>
+                    <li><b class="M">M</b> - Popularitatea modelului (0-10)</li>
+                    <li><b class="S">S</b> - Numarul de vanzari recente ale modelului</li>
+                    <li><b>P</b> - Popularitatea masinii (0-10)</li>
+                  </ul>
+                </mrow>
+                <mrow>
+                  <mtext>Daca </mtext>
+                  <mi>P</mi>
+                  <mo>&gt;</mo>
+                  <mn>7</mn>
+                  <mtext>, atunci masina este considerata populara.</mtext>
+                </mrow>
+              </math>
+
+            </div>
+            
+            
+          </details>
+
+
+          
+            <!--ex11c)-->
+      <div class="container-iframe">
+        <div class="taburi-iframe">
+          <a
+            href="https://www.youtube.com/embed/L9Ski7kg9Ig"
+            target="ifr-video"
+            >Prezentare</a
+          >
+          <a
+            href="https://www.youtube.com/embed/KysoL39kxhA"
+            target="ifr-video"
+            ><i>Test Drive</i></a
+          >
+        </div>
+        <iframe
+          name="ifr-video"
+          width="450"
+          height="350"
+          src="https://www.youtube.com/embed/L9Ski7kg9Ig"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+
+
+
+
+        </div>
+
+        <div class="back-to-top">
+          <a href="index.html">
+            <div>⇧</div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+  
+    <%- include("../fragmente/footer.ejs") %>
+
+  </body>
+</html>
