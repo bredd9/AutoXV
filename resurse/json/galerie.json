@@ -1,0 +1,26 @@
+{
+	"cale_galerie": "resurse/imagini/masini",
+	"imagini": [
+	  {
+		"fisier": "masina1.jpg",
+		"descriere": "Renault",
+		"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+	  },
+	  {
+		"fisier": "masina2.jpg",
+		"descriere": "Alfa",
+		"luni":["ianuarie","februarie","iunie"]
+	  },
+	  {
+		"fisier": "masina3.jpg",
+		"descriere": "BMW",
+		"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
+	  },
+	  {
+		"fisier": "nissan_Gtr.jpg",
+		"descriere": "GTR",
+		"luni":["noiembrie","aprilie", "decembrie"]
+	  }
+	 
+	]
+  }

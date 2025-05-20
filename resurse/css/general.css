@@ -1,7 +1,3 @@
-/* 1. schema-cromatica - gata*/
-/* 2. layout - trebuie tranzitia la text ecran mic si mediu*/
-/* 3. design rudimentar - e*/
-
 
 
 *{
@@ -61,30 +57,7 @@
     width: 100%;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: var(--background-color); 
-  padding: 12px;
-  border-bottom: 2px solid var(--culoare-secundara-2); 
-}
 
-nav ul li {
-  margin: 0 15px;
-}
-
-
-nav ul li a {
-  color: var(--background-color); 
-  text-decoration: none;
-  font-weight: bold;
-  padding: var(--text-padding);
-  transition: 0.3s;
-  font-family: 'Sriracha';
-  font-weight: 100;
-  font-style: normal;
-}
   
   .logo{
     color: var(--primary-color);
@@ -109,105 +82,11 @@ nav ul li a {
   }
 
 
-.menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: var(--background-color); 
-    display: flex;
-    border-bottom: 3px solid var(--border-color); 
-    border-top: 3px solid var(--border-color); 
-    border-left:3px solid var(--border-color); 
-    border-right: 3px solid var(--border-color); 
-    position: sticky;
-}
-
-.menu li {
-    position: relative;
-}
-.menu a {
-    position: relative;
-    display: block;
-    padding: 12px 20px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
-    overflow: hidden;
-}
-
-.menu>li>a::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 1px; 
-    height: 1px;
-    background: var(--border-color);
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-    z-index: -1;
-}
-
-.menu>li>a:hover::before {
-    width: 100%;
-    height: 100%;
-}
-
-.menu>li>a:hover {
-    color: #000000;
-}
 
 
 
-.submenu {
-    list-style: none;
-    padding: 10px 0;
-    margin: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--culoare-secundara-5);
-    border-radius: 5px;
-    min-width: 180px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-    transform: scale(0);
-    transform-origin: top left;
-    transition: transform 0.3s ease-in-out;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.menu li:hover > .submenu {
-    transform: scale(1);
-    opacity: 1;
-    visibility: visible;
-}
-
-.submenu li {
-    width: 85%;
-}
 
 
-.submenu a {
-    display: block;
-    padding: 10px 15px;
-    color: white;
-    font-size: 14px;
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-}
-
-.submenu a:hover{
-    background-color: white;
-    color: var(--auriu);
-    transition: all 0.3s ease-in-out;
-}
-
-
-
-.menu li:hover > .submenu {
-    display: block;
-}
 
 
   
