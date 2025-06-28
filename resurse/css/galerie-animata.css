@@ -1,0 +1,44 @@
+.galerie-animata {
+    width: 400px;
+    height: 250px;
+    margin: auto;
+    margin-bottom: 20px;
+    position: relative;
+    perspective: 1000px;
+    overflow: hidden;
+    border: 5px solid var(--culoare-principala);
+}
+#galerie-animata h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.poza-galerie {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    backface-visibility: hidden;
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.poza-galerie img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.poza-galerie.activa {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.poza-galerie.iesire {
+    transform: rotateY(90deg);
+    opacity: 0;
+}
+
+.poza-galerie.intrare {
+    transform: rotateY(-90deg);
+    opacity: 1;
+}

@@ -3,24 +3,53 @@
 	"imagini": [
 	  {
 		"fisier": "masina1.jpg",
-		"descriere": "Renault",
-		"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+		"descriere": "Renault Megane",
+		"luni":["martie","februarie","noiembrie","aprilie", "decembrie","iunie"],
+		"galerie-animata":true
 	  },
 	  {
 		"fisier": "masina2.jpg",
-		"descriere": "Alfa",
-		"luni":["ianuarie","februarie","iunie"]
+		"descriere": "Alfa Romeo Giulia",
+		"luni":["ianuarie","februarie","iunie"],
+		"galerie-animata":true
 	  },
 	  {
 		"fisier": "masina3.jpg",
-		"descriere": "BMW",
-		"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
+		"descriere": "Seria 3 E90",
+		"luni":["ianuarie","noiembrie","iunie","martie","aprilie"],
+		"galerie-animata":true
 	  },
 	  {
 		"fisier": "nissan_Gtr.jpg",
-		"descriere": "GTR",
-		"luni":["noiembrie","aprilie", "decembrie"]
+		"descriere": "Nissan GT-R",
+		"luni":["noiembrie","aprilie", "decembrie", "iunie"],
+		"galerie-animata":true
+	  },
+	  {
+		"fisier": "rs3.jpg",
+		"descriere": "Audi RS3",
+		"luni":["noiembrie","aprilie", "decembrie", "iunie"],
+		"galerie-animata":true
+	  },
+	  {
+		"fisier": "glc.jpg",
+		"descriere": "Mercedes-Benz GLC Coupe",
+		"luni":["noiembrie","aprilie", "decembrie", "iunie"],
+		"galerie-animata":true
+	  },
+	  {
+		"fisier": "aventador.jpg",
+		"descriere": "Lamborghini Aventador",
+		"luni":["noiembrie","aprilie", "decembrie", "iunie"],
+		"galerie-animata":true
+	  },
+	  {
+		"fisier": "Logan.jpg",
+		"descriere": "Dacia Logan",
+		"luni":["noiembrie","aprilie", "decembrie", "iunie"],
+		"galerie-animata":true
 	  }
+	  
 	 
 	]
   }

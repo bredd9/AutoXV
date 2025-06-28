@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--ex1-->
+
+<html lang="ro">
+  <head>
+    <meta
+      name="description"
+      content="Platforma de Vanzare Masini  Second-Hand"
+    />
+    <meta
+      name="keywords"
+      content="auto second-hand, vanzare masini, cumparare masini, anunturi auto, piata auto, leasing auto, rate auto, ghid-forum auto, platforma vanzari auto, cumparatori auto, vanzatori auto"
+    />
+    <title>AutoXV</title>
+
+    <%- include("../fragmente/head.ejs") %>
+  </head>
+
+  <body>
+    <%- include("../fragmente/header.ejs") %>
+    <h2>Comparatie produse</h2>
+    <table border="1">
+      <tr>
+        <th>Caracteristică</th>
+        <th><%= produse[0].nume %></th>
+        <th><%= produse[1].nume %></th>
+      </tr>
+      <tr>
+        <td>Preț</td>
+        <td><%= produse[0].pret %> €</td>
+        <td><%= produse[1].pret %> €</td>
+      </tr>
+      <tr>
+        <td>Putere</td>
+        <td><%= produse[0].putere %> CP</td>
+        <td><%= produse[1].putere %> CP</td>
+      </tr>
+      <tr>
+        <td>Tip Mașină</td>
+        <td><%= produse[0].tip_masina %></td>
+        <td><%= produse[1].tip_masina %></td>
+      </tr>
+      <tr>
+        <td>Categorie</td>
+        <td><%= produse[0].categorie %></td>
+        <td><%= produse[1].categorie %></td>
+      </tr>
+      <!-- Poți adăuga și alte specificații -->
+    </table>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta
+      name="description"
+      content="AutoXV - Detalii despre mașinile disponibile."
+    />
+    <meta
+      name="keywords"
+      content="auto, masini second hand, autoXV, detalii masina"
+    />
+
+    <title>AutoXV - Detalii Mașină</title>
+    <%- include("../fragmente/head") %>
+    <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+      <section>
+        <h2>Detalii Mașină</h2>
+        <article id="art-produs">
+          <h3><span class="nume"><%- prod.nume %></span></h3>
+          <p>Preț: <span class="pret"><%- prod.pret %> €</span></p>
+          <p>Descriere: <span class="descriere"><%- prod.descriere %></span></p>
+          <p>Putere: <span class="putere"><%- prod.putere %> CP</span></p>
+          <p>Tip Mașină: <span class="tip"><%- prod.tip_masina %></span></p>
+          <p>Categorie: <span class="categorie"><%- prod.categorie %></span></p>
+          <p>
+            Dotări: <span class="dotari"><%- prod.dotari.join(", ") %></span>
+          </p>
+          <p>
+            Automată:
+            <span class="automata"><%- prod.automata ? "Da" : "Nu" %></span>
+          </p>
+          <p>
+            Data adăugare:
+            <time datetime="<%- prod.data_adaugare.toISOString() %>">
+              <%- prod.data_adaugare.toLocaleDateString("ro-RO", { day:
+              "numeric", month: "long", year: "numeric", weekday: "long" }) %>
+            </time>
+          </p>
+          <figure class="imag-produs">
+            <img
+              src="/resurse/imagini/masini/<%- prod.imagine %>"
+              alt="[imagine <%- prod.nume %>]"
+            />
+          </figure>
+        </article>
+        <button
+          class="btn-compara"
+          data-id="<%= prod.id %>"
+          data-nume="<%= prod.nume %>"
+        >
+          Compară
+        </button>
+      </section>
+
+      <section>
+        <% if (seturi.length > 0) { %>
+        <h3>Seturi din care face parte acest produs:</h3>
+
+        <% for (let set of seturi) { %>
+        <div class="set" style="margin-bottom: 30px">
+          <h4><%= set.nume_set %></h4>
+          <p><%= set.descriere_set %></p>
+
+          <div class="produse-set" style="display: flex; flex-wrap: wrap">
+            <% for (let produsSet of set.produse) { %>
+            <div class="produs-set" style="margin: 10px; text-align: center">
+              <a href="/produs/<%= produsSet.id %>">
+                <img
+                  src="/resurse/imagini/masini/<%= produsSet.imagine %>"
+                  style="width: 150px"
+                />
+              </a>
+              <p>
+                <a href="/produs/<%= produsSet.id %>"><%= produsSet.nume %></a>
+              </p>
+              <p>Pret: <%= produsSet.pret %> €</p>
+            </div>
+            <% } %>
+          </div>
+
+          <p>
+            <strong>Pret set (cu reducere aplicata): </strong> <%= set.pretFinal
+            %> €
+          </p>
+          <hr />
+        </div>
+        <% } %> <% } else { %>
+        <p>Acest produs nu face parte din niciun set.</p>
+        <% } %>
+      </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+  </body>
+</html>

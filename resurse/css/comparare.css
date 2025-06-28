@@ -1,0 +1,60 @@
+#container-comparare {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 15px 20px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none; /* Va fi afișat din JavaScript */
+    width: 300px;
+    font-family: Arial, sans-serif;
+}
+
+#container-comparare p {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+#container-comparare ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#container-comparare li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#container-comparare li button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#container-comparare li button:hover {
+    background-color: darkred;
+}
+
+#btn-afiseaza {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#btn-afiseaza:hover {
+    background-color: #218838;
+}

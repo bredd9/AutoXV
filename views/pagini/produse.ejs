@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta
+      name="description"
+      content="Platforma de Vanzare Masini Second-Hand"
+    />
+    <meta
+      name="keywords"
+      content="auto second-hand, vanzare masini, cumparare masini, anunturi auto, piata auto, leasing auto, rate auto, ghid-forum auto, platforma vanzari auto, cumparatori auto, vanzatori auto"
+    />
+    <title>AutoXV</title>
+    <%- include("../fragmente/head.ejs") %>
+  </head>
+
+  <script type="text/javascript" src="/resurse/js/produse.js"></script>
+
+  <body>
+    <%- include("../fragmente/header.ejs") %>
+
+    <main>
+      <!-- nume masina -->
+      <div class="form-floating mb-3 col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          id="inp-nume"
+          placeholder="Nume"
+        />
+        <label for="inp-nume">Nume</label>
+      </div>
+
+      <!-- droptable pentru categorii -->
+      <div>
+        <label
+          >Select categorie:
+          <select id="inp-categorie">
+            <option id="sel-toate" selected value="toate">toate</option>
+            <% for (let opt of categorii) { %>
+            <option value="<%- opt.categorie %>"><%- opt.categorie %></option>
+            <% } %>
+          </select>
+        </label>
+      </div>
+
+      <!-- slider pentru putere -->
+      <div>
+        <label class="form-label"
+          >Putere minima:
+          <input
+            type="range"
+            class="form-range"
+            id="inp-putere"
+            min="<%= minPutere %>"
+            max="<%= maxPutere %>"
+            value="<%= minPutere %>"
+            step="10"
+          />
+          <span id="infoPutere">(<%= minPutere %>)</span>
+        </label>
+      </div>
+
+      <!-- droptable pentru tip masina -->
+      <div>
+        <label
+          >Select tip masina:
+          <select id="inp-tip_masina">
+            <option id="sel-tip-toate" selected value="toate">toate</option>
+            <% for (let opt of tipuri) { %>
+            <option value="<%- opt.tip_masina %>"><%- opt.tip_masina %></option>
+            <% } %>
+          </select>
+        </label>
+      </div>
+
+      <!-- checkbox pentru electrica -->
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="inp-electrica" />
+        <label class="form-check-label" for="inp-electrica"
+          >Doar masini electrice</label
+        >
+      </div>
+
+      <!-- radio pentru interval pret -->
+      <div class="btn-group mb-3" role="group">
+        <input
+          type="radio"
+          class="btn-check"
+          name="gr_rad"
+          id="i_rad1"
+          value="0:32000"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-primary" for="i_rad1"
+          >Mic (pret &lt; 32000)</label
+        >
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="gr_rad"
+          id="i_rad2"
+          value="32000:80000"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-primary" for="i_rad2"
+          >Mediu (32000€ &le; pret &lt; 80000€)</label
+        >
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="gr_rad"
+          id="i_rad3"
+          value="80000:1000000000"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-primary" for="i_rad3"
+          >Ridicat (80000€ &le; pret)</label
+        >
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="gr_rad"
+          id="i_rad4"
+          value="toate"
+          checked
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-primary" for="i_rad4">Toate</label>
+      </div>
+
+      <!-- slider pentru pret minim -->
+      <div>
+        <label class="form-label"
+          >Pret minim:
+          <input
+            type="range"
+            class="form-range"
+            id="inp-pret"
+            value="0"
+            min="0"
+            max="400000"
+            step="1000"
+          />
+          <span id="infoRange">(0)</span>
+        </label>
+      </div>
+
+      <!-- dotari -->
+      <div>
+        <label>Dotari:</label>
+        <table>
+          <tr>
+            <% for (let i = 0; i < dotari.length; i++) { %>
+            <td>
+              <input
+                type="checkbox"
+                class="inp-dotare"
+                id="dotare-<%= i %>"
+                value="<%- dotari[i].dotare %>"
+              />
+              <label for="dotare-<%= i %>"><%- dotari[i].dotare %></label>
+            </td>
+            <% if ((i + 1) % 3 === 0) { %>
+          </tr>
+          <tr>
+            <% } %>
+            <!-- tabel-->
+            <% } %>
+          </tr>
+        </table>
+      </div>
+
+      <!-- butoane formular -->
+      <p>
+        <button id="filtrare" class="btn btn-primary mb-3">
+          <i class="bi bi-funnel-fill"></i>
+          <span class="d-none d-md-inline">Filtreaza</span>
+        </button>
+
+        <button id="resetare" class="btn btn-danger mb-3">
+          <i class="bi bi-arrow-clockwise"></i>
+          <span class="d-none d-md-inline">Reseteaza</span>
+        </button>
+        <br />
+        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
+        <button id="sortDescrescNume">
+          Sorteaza descrescator dupa pret si nume
+        </button>
+      </p>
+
+      <p id="p-suma">
+        apasa alt+"c" pentru suma preturilor produselor afisate.
+      </p>
+
+      <!-- afisare produse -->
+      <section id="produse">
+        <h2>Produse</h2>
+        <div class="grid-produse">
+          <% for (let prod of locals.produse) { %>
+          <article
+            class="produs"
+            data-categorie="<%- prod.categorie %>"
+            data-dotari="<%- prod.dotari.map(d => d.trim().toLowerCase()).join(',') %>"
+          >
+            <h3 class="nume">
+              <a href="/produs/<%- prod.id %>"
+                ><span class="val-nume"><%- prod.nume %></span></a
+              >
+            </h3>
+            <div class="info-prod">
+              <p class="pret">
+                pret: <span class="val-pret"><%- prod.pret %>€</span>
+              </p>
+              <p class="putere">
+                putere: <span class="val-putere"><%- prod.putere %>CP</span>
+              </p>
+
+              <p class="categorie">
+                categorie:
+                <span class="val-categorie"><%- prod.categorie %></span>
+              </p>
+
+              <p class="tip-masina">
+                tip masina:
+                <span class="val-tip_masina"><%- prod.tip_masina %></span>
+              </p>
+            </div>
+
+            <figure>
+              <a href="/produs/<%- prod.id %>">
+                <img
+                  src="/resurse/imagini/masini/<%- prod.imagine %>"
+                  style="width: 50%; height: auto"
+                  alt="[imagine <%- prod.nume %>]"
+                />
+              </a>
+            </figure>
+
+            <button
+              class="btn-compara"
+              data-id="<%= prod.id %>"
+              data-nume="<%= prod.nume %>"
+            >
+              Compară
+            </button>
+
+            <label class="selecteaza-cos">
+              selecteaza:<br />
+              <input
+                type="checkbox"
+                class="select-cos"
+                value="<%- prod.id %>"
+                autocomplete="off"
+              />
+            </label>
+          </article>
+          <% } %>
+        </div>
+      </section>
+      <div id="product-modal" class="modal hidden">
+        <div class="modal-content" id="modal-details"></div>
+        <span id="close-modal" class="close-button">&times;</span>
+      </div>
+    </main>
+
+    <%- include("../fragmente/footer.ejs") %>
+  </body>
+</html>

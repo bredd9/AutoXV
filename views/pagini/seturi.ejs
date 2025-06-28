@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--ex1-->
+
+<html lang="ro">
+  <head>
+    <meta
+      name="description"
+      content="Platforma de Vanzare Masini  Second-Hand"
+    />
+    <meta
+      name="keywords"
+      content="auto second-hand, vanzare masini, cumparare masini, anunturi auto, piata auto, leasing auto, rate auto, ghid-forum auto, platforma vanzari auto, cumparatori auto, vanzatori auto"
+    />
+    <title>AutoXV</title>
+
+    <%- include("../fragmente/head.ejs") %>
+  </head>
+
+  <body>
+    <%- include("../fragmente/header.ejs") %>
+    <main>
+      <h2>Seturi de produse</h2>
+
+      <% if (seturi.length > 0) { %> <% for (let set of seturi) { %>
+      <div class="set" style="margin-bottom: 30px">
+        <h3><%= set.nume_set %></h3>
+        <p><%= set.descriere_set %></p>
+
+        <div class="produse-set" style="display: flex; flex-wrap: wrap">
+          <% for (let produs of set.produse) { %>
+          <div class="produs-set" style="margin: 10px; text-align: center">
+            <a href="/produs/<%= produs.id %>">
+              <img
+                src="/resurse/imagini/masini/<%= produs.imagine %>"
+                style="width: 150px"
+              />
+            </a>
+            <p><a href="/produs/<%= produs.id %>"><%= produs.nume %></a></p>
+            <p>Pret: <%= produs.pret %> €</p>
+          </div>
+          <% } %>
+        </div>
+
+        <p>
+          <strong>Pret set (cu reducere aplicata): </strong> <%= set.pretFinal
+          %> €
+        </p>
+      </div>
+      <hr />
+      <% } %> <% } else { %>
+      <p>Nu există seturi disponibile.</p>
+      <% } %>
+    </main>
+    <%- include("../fragmente/footer.ejs") %>
+  </body>
+</html>

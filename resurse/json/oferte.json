@@ -1,0 +1,40 @@
+{
+  "oferte": [
+    {
+      "categorie": "SUV",
+      "data-incepere": "2025-06-28T08:03:31.135Z",
+      "data-finalizare": "2025-06-28T08:04:31.135Z",
+      "reducere": 15
+    },
+    {
+      "categorie": "electrica",
+      "data-incepere": "2025-06-28T08:02:31.123Z",
+      "data-finalizare": "2025-06-28T08:03:31.123Z",
+      "reducere": 5
+    },
+    {
+      "categorie": "clasica",
+      "data-incepere": "2025-06-28T08:01:31.122Z",
+      "data-finalizare": "2025-06-28T08:02:31.122Z",
+      "reducere": 25
+    },
+    {
+      "categorie": "utilitara",
+      "data-incepere": "2025-06-28T08:00:31.118Z",
+      "data-finalizare": "2025-06-28T08:01:31.118Z",
+      "reducere": 45
+    },
+    {
+      "categorie": "electrica",
+      "data-incepere": "2025-06-28T07:59:31.116Z",
+      "data-finalizare": "2025-06-28T08:00:31.116Z",
+      "reducere": 5
+    },
+    {
+      "categorie": "clasica",
+      "data-incepere": "2025-06-28T07:58:31.106Z",
+      "data-finalizare": "2025-06-28T07:59:31.106Z",
+      "reducere": 25
+    }
+  ]
+}

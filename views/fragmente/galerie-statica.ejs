@@ -1,0 +1,38 @@
+<div class="reflexie-container">
+  <h2 class="text-reflexie">Galeria auto</h2>
+  <h2 class="text-reflexie-reflectie">Galeria auto</h2>
+</div>
+
+<div id="grid-galerie">
+  <% if (!Array.isArray(imagini) || imagini.length === 0) { %>
+  <p>Nu există imagini disponibile.</p>
+  <% } else { const d = new Date(); const lunaCurenta = d.toLocaleString('ro',
+  {month: 'long' }).toLowerCase(); const luniVara = ["iunie", "iulie",
+  "august"]; const imaginiFiltrate = imagini.filter(imag => { return imag.luni
+  && imag.luni.some(luna => luniVara.includes(luna.toLowerCase()));
+  }).slice(0,10); if (imaginiFiltrate.length === 0) { %>
+  <p>Nu există imagini disponibile pentru vara curentă.</p>
+  <% } else { const total_imagini = imaginiFiltrate.length; const coloane = 3;
+  let imag_index = 0; let index = 0; const cifre_romane = ["i", "ii", "iii",
+  "iv", "v", "vi", "vii", "viii", "ix", "x"]; while (imag_index < total_imagini)
+  { const pozitie_in_rand = index % coloane; const rand = Math.floor(index /
+  coloane); let trebuie_div_gol = false; if (rand % 2 === 1 && pozitie_in_rand
+  === 1) { trebuie_div_gol = true; } if (trebuie_div_gol) { %>
+  <div class="gol"></div>
+  <% } else { if (imag_index < total_imagini) { const imag =
+  imaginiFiltrate[imag_index++]; %>
+  <figure>
+    <picture>
+      <% if (imag.fisier_mediu) { %>
+      <source srcset="<%= imag.fisier_mediu %>" media="(max-width: 1000px)" />
+      <% } %>
+      <img
+        src="<%= imag.fisier %>"
+        alt="<%= imag.continut_alternativ || imag.nume || 'Imagine' %>"
+        title="<%= imag.descriere || imag.nume || 'Imagine' %>"
+      />
+    </picture>
+    <figcaption><%= imag.descriere || imag.nume || 'Imagine' %></figcaption>
+  </figure>
+  <% } } index++; } } } %>
+</div>

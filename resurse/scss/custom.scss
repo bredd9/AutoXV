@@ -1,0 +1,47 @@
+// import Bootstrap complet
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// integrare culori din variabilele tale
+$primary: #25f501; // culoare-principala
+$secondary: #caf40f; // culoare-secundara-2
+$success: #c9f5b5; // culoare-secundara-3
+$danger: #e51700; // culoare-secundara-4
+$dark: #000000; // culoare-secundara-5
+$light: #c9f5b5; // succes (verde deschis)
+
+// aplicare tema proprie
+$body-bg: #266300; // culoare-secundara-1
+$body-color: #000000; // text negru
+
+// dimensiuni ecran personalizate
+$grid-breakpoints: (
+  sm: 480px,
+  md: 900px,
+  lg: 1300px
+);
+
+// borduri personalizate
+$border-radius: 20px;
+
+// dimensiune headinguri
+$headings-font-size: (
+  h1: 3.5rem,
+  h2: 3rem,
+  h3: 2.5rem,
+  h4: 2rem,
+  h5: 1.5rem,
+  h6: 1.2rem
+);
+
+// font implicit
+$font-family-base: 'Sriracha', cursive;
+
+// variabila proprie
+$btn-padding-y: 1rem;
+$btn-padding-x: 2rem;
+
+$input-border-radius: 0.5rem;
+$input-border-width: 2px;
+
+$btn-border-radius: 0.5rem;
+$btn-border-width: 2px;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--ex1-->
+
+<html lang="ro">
+  <head>
+    <meta name="description" content="Platforma de Vanzare Masini  Second-Hand" />
+    <meta
+  name="keywords"
+  content="auto second-hand, vanzare masini, cumparare masini, anunturi auto, piata auto, leasing auto, rate auto, ghid-forum auto, platforma vanzari auto, cumparatori auto, vanzatori auto"
+/>
+    <title>AutoXV</title>
+
+
+    <%- include("../fragmente/head.ejs") %>
+    
+  </head>
+
+  <body>
+    
+    <%- include("../fragmente/header.ejs") %>
+
+    <main>
+      
+
+        <div class="zona8">
+
+          <%- include("../fragmente/galerie-statica.ejs", { imagini: imagini, cale: cale }) %>
+
+        </div>
+
+        <div class="back-to-top">
+          <a href="/home">
+            <i class="fa-solid fa-arrow-up"></i>
+          </a>
+        </div>
+      </div>
+    </main>
+
+  
+    <%- include("../fragmente/footer.ejs") %>
+
+  </body>
+</html>

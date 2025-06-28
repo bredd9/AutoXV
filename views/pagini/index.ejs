@@ -30,7 +30,7 @@
               pentru a iti gasi impreuna masina perfecta pentru dorintele tale!
             </p>
             <button class="search-bar">
-              <a href="#populare">Cele mai populare marci si modele</a>
+              <a href="/produse">Ultimele anunturi adaugate</a>
             </button>
           </div>
           <div class="banner">
@@ -100,9 +100,18 @@
 
         <div class="zona3">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad mi officia deserunt mollit anim id est laborum.
+            
+                        <% if (oferta) { %>
+<div id="oferta" class="anunt-oferta">
+    <h3>Ofertă specială la categoria <%= oferta.categorie %>!</h3>
+    <p>Reducere: <%= oferta.reducere %>%</p>
+    <p>Timp rămas: <span id="timer" data-finalizare="<%= oferta['data-finalizare'] %>"></span></p>
+</div>
+
+<script src="/resurse/js/timer.js"></script>
+<% } %>
+
+
           </p>
         </div>
         <div class="zona4">
@@ -137,6 +146,9 @@
         </div>
 
         <div class="zona8">
+
+          <%- include("../fragmente/galerie-statica.ejs", { imagini: imagini, cale: cale }) %>
+          <section id="intrebari">
           <details>
             <summary>
               Cum aflati mai exact daca un vehicul face parte din sectiunea vehiculelor apartinant marcilor sau modelelor populare?
@@ -179,11 +191,9 @@
               </math>
 
             </div>
-            
-            
           </details>
 
-
+            <hr class="linie-separatoare">
           
             <!--ex11c)-->
       <div class="container-iframe">
@@ -210,14 +220,19 @@
         >
         </iframe>
 
+        </section>
 
+        <section id="galerie-animata">
+          <h2>Galerie animata</h2>
+          <%- include("../fragmente/galerie-animata.ejs") %>
+        </section>
 
 
         </div>
 
         <div class="back-to-top">
-          <a href="index.html">
-            <div>⇧</div>
+          <a href="/home">
+            <i class="fa-solid fa-arrow-up"></i>
           </a>
         </div>
       </div>
@@ -225,6 +240,6 @@
 
   
     <%- include("../fragmente/footer.ejs") %>
-
+    
   </body>
 </html>

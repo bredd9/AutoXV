@@ -1,0 +1,86 @@
+#grid-galerie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 15px;
+    padding: 10px;
+    counter-reset: img-counter;
+    width: 100%;
+}
+
+
+#grid-galerie figure {
+    counter-increment: img-counter;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid-galerie figcaption::before {
+    content: counter(img-counter, lower-roman) ". ";
+    font-weight: bold;
+}
+
+#grid-galerie img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.125s ease, opacity 0.125s ease, border-radius 0.125s ease;
+    transform-origin: top center;
+}
+
+#grid-galerie img:hover {
+    transform: scale(1.4);
+    opacity: 0.5;
+    border-radius: 15px;
+}
+
+#grid-galerie .gol {
+    visibility: hidden;
+}
+
+@media (max-width: 1000px) {
+    #grid-galerie {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    #grid-galerie {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* containerul pentru reflexie - centrat */
+.reflexie-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* textul original */
+.text-reflexie {
+    position:relative;
+}
+/* reflexia textului */
+.text-reflexie-reflectie {
+    position:absolute;
+	top:110%;
+    scale: 0.7;
+    right: -39%;
+    left: 0%;
+	transform-origin:0 0;
+	/*conetaza ordinea transformarilor!*/
+	transform: rotateX(180deg) skew(-50deg) scaleY(0.5) translate(10px,-25px); 
+	opacity:0.55;
+}
+
+
+/* efectul de alungire la hover */
+.reflexie-container .text-reflexie-reflectie {
+    font-size:50px;
+	line-height:50px;
+	font-weight: bold;
+} 

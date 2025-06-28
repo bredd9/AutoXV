@@ -1,21 +1,38 @@
 <header id="top">
   <div class="header">
-    <h1 class="logo"><span>Auto</span>XV</h1>
+    <h1 class="logo"><span>Auto </span><i class="fa-solid fa-car"></i> XV</h1>
+    <button id="theme-toggle" onclick="toggleTheme()">
+      <i id="theme-icon" class="fa-regular fa-moon"></i>
+    </button>
     <!--ex6-->
+    <input type="checkbox" id="menu-toggle" hidden />
+
+    <label class="hamburger" for="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
     <nav>
       <ul class="menu">
         <li>
-          <a href="#home">Home</a>
+          <a href="/home" class="home-link">
+            <span class="full-text">Home</span>
+            <i class="fa-solid fa-house icon-replacement"></i>
+          </a>
+
           <ul class="submenu">
             <li><a href="#despre">Despre noi</a></li>
-            <li><a href="#ultimele">Ultimele anunturi adaugate</a></li>
+            <li><a href="/galerie-statica">Galerie Auto</a></li>
             <li>
               <a href="#populare">Cele mai populare marci si modele</a>
             </li>
+            <li><a href="/seturi">Seturi</a></li>
           </ul>
         </li>
-        <li><a href="#cautare">Cautare avansata</a></li>
-        <li><a href="#publica">Publicare anunt</a></li>
+        <li>
+          <a href="/produse">Cautare avansata</a>
+        </li>
         <li>
           <a href="#ghid-forum">Ghid & Forum</a>
           <ul class="submenu">

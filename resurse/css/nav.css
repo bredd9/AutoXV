@@ -1,3 +1,8 @@
+nav {
+  position: relative;
+  z-index: 1000;
+}
+
 nav ul {
   list-style: none;
   display: flex;
@@ -6,9 +11,11 @@ nav ul {
   padding: 12px;
   border-bottom: 2px solid var(--culoare-secundara-2);
 }
+
 nav ul li {
   margin: 0 15px;
 }
+
 nav ul li a {
   color: var(--background-color);
   text-decoration: none;
@@ -29,9 +36,11 @@ nav ul li a {
   border: 3px solid var(--border-color);
   position: sticky;
 }
+
 .menu li {
   position: relative;
 }
+
 .menu li a {
   position: relative;
   display: block;
@@ -42,6 +51,7 @@ nav ul li a {
   transition: color 0.3s ease-in-out;
   overflow: hidden;
 }
+
 .menu li a::before {
   content: "";
   position: absolute;
@@ -54,13 +64,16 @@ nav ul li a {
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
   z-index: -1;
 }
+
 .menu li a:hover {
   color: #000000;
 }
+
 .menu li a:hover::before {
   width: 100%;
   height: 100%;
 }
+
 .menu li:hover > .submenu {
   transform: scale(1);
   opacity: 1;
@@ -85,18 +98,153 @@ nav ul li a {
   opacity: 0;
   visibility: hidden;
 }
+
 .submenu li {
   width: 85%;
 }
+
 .submenu li a {
   display: block;
   padding: 10px 15px;
-  color: white;
+  color: var(--culoare-secundara-7);
   font-size: 14px;
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
+
 .submenu li a:hover {
-  background-color: white;
+  background-color: var(--culoare-secundara-2);
   color: var(--auriu);
   transition: all 0.3s ease-in-out;
+}
+
+.hamburger {
+  display: none;
+}
+
+.home-link .icon-replacement {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+  .menu {
+    gap: 20px;
+  }
+  .menu li a {
+    font-size: 0.9em;
+    padding: 8px 12px;
+  }
+  .home-link .full-text {
+    display: none;
+  }
+  .home-link .icon-replacement {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: var(--culoare-secundara-5);
+  }
+}
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    z-index: 1100;
+    margin-right: 1000px;
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 80px 0 20px;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0% 8.5%, 0% 8.5%, 0% 50%, 0% 100%, 0% 100%);
+    transition: clip-path 1.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  .menu::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .menu li {
+    width: 120%;
+    margin-top: 0;
+    margin-left: -90px;
+  }
+  .menu li a {
+    padding: 15px 25px;
+    display: block;
+    font-size: 1.1em;
+    text-align: center;
+  }
+  .menu li ul {
+    position: static;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: none;
+    clip-path: none;
+    transform: none !important;
+    box-shadow: none;
+  }
+  .menu li ul li a:hover {
+    background-color: #555;
+  }
+  .menu li:hover ul, .menu li:focus-within ul {
+    display: block;
+  }
+  #menu-toggle:checked ~ nav .menu {
+    clip-path: polygon(0% 8.5%, 100% 8.5%, 200% 50%, 100% 100%, 0% 100%);
+  }
+  #menu-toggle:checked ~ nav .menu::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .home-link .full-text {
+    display: none;
+  }
+  .home-link .icon-replacement {
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(1) {
+    animation: animateBar1 0.1s 0.1s forwards;
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(2) {
+    animation: animateBar2 0.1s forwards;
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(3) {
+    animation: animateBar3 0.1s 0.15s forwards;
+  }
+  @keyframes animateBar1 {
+    to {
+      transform: rotate(45deg) translate(5px, 5px);
+      background-color: red;
+    }
+  }
+  @keyframes animateBar2 {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes animateBar3 {
+    to {
+      transform: rotate(-45deg) translate(7px, -6px);
+      background-color: red;
+    }
+  }
 }

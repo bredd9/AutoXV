@@ -1,0 +1,38 @@
+<div class="galerie-animata" id="galerie-animata">
+    <% for(let i=0; i<imagini.length; i++) { %>
+        <div class="poza-galerie <%=i === 0 ? 'activa' : '' %>">
+            <img src="<%= imagini[i].fisier %>" alt="<%= imagini[i].descriere %>">
+        </div>
+    <% } %>
+</div>
+
+<script>
+    let imagini = document.querySelectorAll('.poza-galerie');
+    let indexCurent = 0;
+    let intervalGalerie;
+    let intervalRapid = 300;
+    function schimbaImagine() {
+        let imagineCurenta = imagini[indexCurent];
+        imagineCurenta.classList.remove('activa');
+
+        indexCurent = (indexCurent + 1) % imagini.length;
+
+        let urmatoareaImagine = imagini[indexCurent];
+        urmatoareaImagine.classList.add('activa');
+    }
+
+    function pornesteGaleria() {
+        intervalGalerie = setInterval(schimbaImagine, 2000);
+    }
+
+    function opresteGaleria() {
+        clearInterval(intervalGalerie);
+    }
+
+    let galerie = document.getElementById('galerie-animata');
+    galerie.addEventListener('mouseenter', opresteGaleria);
+    galerie.addEventListener('mouseleave',function () {
+    pornesteGaleria(intervalRapid);});
+
+    window.onload = pornesteGaleria;
+</script>
